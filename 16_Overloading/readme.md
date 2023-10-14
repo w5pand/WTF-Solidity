@@ -39,8 +39,7 @@ function saySomething(string memory something) public pure returns(string memory
 ![](./img/16-1.jpg)
 
 ### 实参匹配（Argument Matching）
-在调用重载函数时，会把输入的实际参数和函数参数的变量类型做匹配。
-如果出现多个匹配的重载函数，则会报错。下面这个例子有两个叫`f()`的函数，一个参数为`uint8`，另一个为`uint256`：
+***在调用重载函数时，会把输入的实际参数和函数参数的变量类型做匹配。如果出现多个匹配的重载函数，则会报错。*** 下面这个例子有两个叫`f()`的函数，一个参数为`uint8`，另一个为`uint256`：
 ```solidity
     function f(uint8 _in) public pure returns (uint8 out) {
         out = _in;
@@ -50,9 +49,8 @@ function saySomething(string memory something) public pure returns(string memory
         out = _in;
     }
 ```
-\`\`\`diff
-- red 我们调用`f(50)`，因为`50`既可以被转换为`uint8`，也可以被转换为`uint256`，因此会报错。
-\`\`\`
+
+***我们调用`f(50)`，因为`50`既可以被转换为`uint8`，也可以被转换为`uint256`，因此会报错。***
 
 ## 总结
 这一讲，我们介绍了`solidity`中函数重载的基本用法：名字相同但输入参数类型不同的函数可以同时存在，他们被视为不同的函数。
